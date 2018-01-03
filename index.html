@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>我的第一个实例</title>
+	</head>
+
+	<body>
+		<h1>猜数字</h1>
+		<p>1~我们在1到100之间选择了一个随机数。看看你能不能猜到10圈以内。如果你猜得太高或太低，我们会告诉你的。</p>
+		<div class="form">
+			<label for="guessField">输入一个猜:</label>
+			<input type="text" name="" id="guessField" value="" />
+			<button onclick="test()" class="guessSubmit">命令</button>
+		</div>
+		<div class="resultParas">
+			<p class="guesses"></p>
+			<p class="lastResult"></p>
+			<p class="lowOrHi"></p>
+		</div>
+		<script type="text/javascript">
+			var myRandom = Math.floor(Math.random() * 100);
+			//		取出随机数
+			var guesses = document.querySelector('.guesses');
+			var lastResult = document.querySelector('.lastResult');
+			var lowOrHi = document.querySelector('.lowOrHi');
+			//      获取提示部分标签
+			var guessFieid = document.getElementById('guessField');
+			//      获取输入的值
+			var guessSubmit = document.querySelector('.guessSubmit')
+			//      获取命令按钮
+			var guessCount = 1;
+			var resetButton;
+
+			function test() {
+				var userGuess = Number(guessFieid)
+				//      将输入的值变为数字
+				if(guessCount === 1) {
+					//      判断初始值
+					guesses.textContent = '先前的猜测：';
+					//      当判断是否为第一次，是就设置文本内容
+				}
+				guesses.textContent += userGuess + ' ';
+				//      将之前输入的数字追加进文本内容
+
+			}
+		</script>
+
+	</body>
+
+</html>
