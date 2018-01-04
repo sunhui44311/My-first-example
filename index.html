@@ -87,7 +87,6 @@
 			guessSubmit.addEventListener('click', test);
 			//监听命令按钮当点击时调用判断函数
 
-
 			function setGameOver() {
 				guessFieid.disabled = true;
 				guessSubmit.disabled = true;
@@ -100,8 +99,11 @@
 				resetButton.addEventListener('click', resetGame)
 				//给按钮创建一个监听事件
 			}
-			console.log('666')
-			
+
+			function resetGame(){
+				guessCount=1;
+				//将初始值设置为1
+			}
 		</script>
 	</body>
 
