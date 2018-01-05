@@ -65,11 +65,11 @@
 					lastResult.textContent = '错误！！';
 					lastResult.style.backgroundColor = '#f00';
 					//提示部分改变内容
-					if(userGuess < myRandom) {
+					if(userGuess > myRandom) {
 						//判断输入的值是否小于随机数
 						lowOrHi.textContent = '你输入的数字比较大';
 						//当判断为true时提示文本内容改变
-					} else if(userGuess > myRandom) {
+					} else if(userGuess < myRandom) {
 						//输入的的值大于随机数
 						lowOrHi.textContent = '你输入的数字比较小';
 						//提示文本改变
@@ -90,7 +90,7 @@
 			function setGameOver() {
 				guessFieid.disabled = true;
 				guessSubmit.disabled = true;
-				//表单按钮变成不可选定
+				//禁止表单及按钮的使用
 				resetButton = document.createElement('button');
 				resetButton.textContent = '开始新游戏';
 				//创建一个新的按钮并且设置文本
@@ -103,6 +103,26 @@
 			function resetGame(){
 				guessCount=1;
 				//将初始值设置为1
+				var resultParas=document.querySelector('.resultParas p');
+				//获取提示部分中所有的p标签
+				for(var i=0;i<resultParas.length;i++){
+					resultParas[i].textContent='';
+					
+				}
+				//清除p标签中的文本内容
+				resetButton.parentNode.removeChild(resetButton);
+				//清除提示部分中的按钮
+				guessFieid.disabled=false;
+				guessSubmit.disabled=false;
+				//重新启动禁止状态表单和按钮
+				guessFieid.value='';
+				guessFieid.focus();
+				//清空表单中的内容并重新聚集
+				lastResult.style.backgroundColor='white';
+				//删除提示部分的背景颜色
+				myRandom = Math.floor(Math.random() * 100) + 1;
+				//重新生成一个随机数为下次启动做准备
+				
 			}
 		</script>
 	</body>
